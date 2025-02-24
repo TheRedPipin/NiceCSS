@@ -1,0 +1,154 @@
+body {
+    background-color: #201f1f;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#moneyText {
+    user-select: none;
+    color: rgb(124, 111, 111);
+    font-size: 90px;
+    margin: 10px;
+    text-align: center;
+}
+
+#boxes {
+    display :grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    grid-gap: 10px;
+    height: 80vh;
+    margin: 0 auto;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+.box {
+    border-radius: 5px;
+    user-select: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    width: 225px;
+    height: 125px;
+    cursor: grab;
+}
+
+.upgradeBtn {
+    transition: background-color 0.3s;
+    background-color: #2f312f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    height: 8vh;
+}
+
+.upgradeBtn:hover {
+    transition: background-color 0.3s;
+    background-color: #3f413f;
+}
+
+#addBtn {
+    transition: background-color 0.3s;
+    background-color: #2f312f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 48px;
+    margin: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    height: 140px;
+}
+
+#addBtn:hover {
+    transition: background-color 0.3s;
+    background-color: #3f413f;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.upgradeCount {
+    color: rgb(138, 123, 123);
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadein 0.5s ease-in-out;
+}
+
+.fadeOut {
+    animation: fadein 0.5s ease-in-out reverse;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #7a7a7a;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.loadingBar {
+    width: 0;
+    height: 5px;
+}
+
+.loadingBarBkg {
+    background-color: #7a7a7a;
+    border-radius: 5px;
+    height: 7px;
+    width: 225px;
+    margin: 0 auto;
+}
+
+@keyframes load {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
