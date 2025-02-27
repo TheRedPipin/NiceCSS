@@ -1,4 +1,5 @@
-money = 10;
+let money = 10;
+let columnCount = 2
 setInterval(() => {
     document.getElementById("moneyText").textContent = `${money}`;
 },10);
@@ -9,7 +10,6 @@ function addBox() {
     const creationButtonStuff = document.getElementById('addBtn');
     creationButtonStuff.className = 'fadeOut';
     setTimeout(() => {
-        creationButtonStuff.remove();
         const div = document.createElement('div');
         let total = document.getElementById('boxes').childElementCount;
         div.id = `box${total-1}`;
@@ -90,10 +90,8 @@ function addBox() {
         buttonContainer.appendChild(autoBtn);
         div.appendChild(buttonContainer);
         document.getElementById('boxes').appendChild(div);
-        const addBtn = document.createElement('button');
-        addBtn.id = 'addBtn';
-        addBtn.textContent = '+';
-        addBtn.onclick = addBox;
+        const addBtn = document.getElementById('addBtn');
+        addBtn.className = 'fadeIn';
         document.getElementById('boxes').appendChild(addBtn);
     }, 200);
 }
@@ -135,6 +133,16 @@ boxes.addEventListener('mousemove', (e) => {
     lastY = e.pageY;
 });
 
+function  changeGrid(n){
+    columnCount += n;
+    if (columnCount < 1) columnCount = 1;
+    if (columnCount > 4) columnCount = 4;
+    document.getElementById('gridNum').textContent = columnCount;
+    const boxes = document.getElementById('boxes');
+    boxes.style.gridTemplateColumns = `repeat(${columnCount}, 1fr)`;
+    boxes.style.maxWidth = `${columnCount * 400 + (columnCount) * 10}px`;
+};
+
 function applyMomentum() {
     momentumInterval = setInterval(() => {
         if (Math.abs(velocity) < 1) {
@@ -142,6 +150,6 @@ function applyMomentum() {
             return;
         }
         boxes.scrollTop -= velocity;
-        velocity *= 0.95; // Damping factor
+        velocity *= 0.95;
     }, 16);
 }

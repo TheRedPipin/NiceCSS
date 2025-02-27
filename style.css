@@ -13,6 +13,40 @@ body {
     text-align: center;
 }
 
+#gridInput {
+    background-color: #2f312f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template: "A B C";
+    align-items: center;
+}
+
+.gridButton {
+    transition: background-color 0.3s;
+    background-color: #2f312f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.gridButton:hover {
+    transition: background-color 0.3s;
+    background-color: #3f413f;
+}
+
 #boxes {
     display :grid;
     grid-template-columns: 1fr 1fr;
@@ -20,12 +54,14 @@ body {
     grid-gap: 10px;
     height: 80vh;
     margin: 0 auto;
-    max-width: 800px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
+    justify-items: center;
+    transition: 0.3;
+    transition: grid-template-columns 0.3s ease, max-width 0.3s ease;
 }
 
 .box {
@@ -52,6 +88,7 @@ body {
     text-align: center;
     text-decoration: none;
     height: 8vh;
+    transition: 0.3s;
 }
 
 .upgradeBtn:hover {
@@ -73,6 +110,7 @@ body {
     text-decoration: none;
     width: 200px;
     height: 140px;
+    transition: 0.3s;
 }
 
 #addBtn:hover {
